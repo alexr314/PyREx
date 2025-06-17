@@ -53,7 +53,7 @@ def get_molecular_mass(molecule_name):
 def read(filename):
     with h5py.File(filename, 'r') as f:
         molecule_name = f['mol_name'][0].decode('utf-8')
-        print(f"Reading in {molecule_name}")
+        # print(f"Reading in {molecule_name}")
         key_iso_ll = f['key_iso_ll'][0].decode('utf-8')
         pressures = np.array(f['p'])
         temperatures = np.array(f['t'])
@@ -86,7 +86,7 @@ class LineList:
     def __init__(self, filepath):
         with h5py.File(filepath, 'r') as f:
             self.molecule_name = f['mol_name'][0].decode('utf-8')
-            print(f"Reading in {self.molecule_name}")
+            # print(f"Reading in {self.molecule_name}")
             self.key_iso_ll = f['key_iso_ll'][0].decode('utf-8')
             self.pressures = np.array(f['p'])
             self.temperatures = np.array(f['t'])
