@@ -200,3 +200,12 @@ def bin_modulations(modulations, bins=ariel_bins):
 #     """
 #     binned_modulations = np.dot(binning_matrix, modulations)
 #     return binned_modulations
+
+
+def compute_binned_modulations(concentrations, temperature, pressure, planet_radius, star_radius, g, bins=ariel_bins):
+    """
+    Compute the binned modulations of the light curve.
+    """
+    modulations = compute_modulation(concentrations, temperature, pressure, planet_radius, star_radius, g)
+    binned_modulations = bin_modulations(modulations, bins)
+    return binned_modulations
