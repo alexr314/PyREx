@@ -120,18 +120,6 @@ def compute_scale_height(T, g, concentrations):
     return (k_B * T) / (m * g)
 
 
-def get_tau(concentrations, temperature, pressure, planet_radius, g):
-    """
-    Calculate the optical depth of the atmosphere.
-    """
-    # kappa = get_kappa(concentrations, temperature, pressure) # in cm²/molecule
-    kappa = get_kappa(concentrations, temperature, pressure) # in m²/kg
-    H = compute_scale_height(temperature, g, concentrations) # In meters
-    pressure_SI = pressure * 1e5  # Convert pressure from atm to Pa
-    tau = (pressure_SI * kappa / g) * np.sqrt(2 * np.pi * planet_radius / H)
-    return tau   # Which is dimensionless!
-
-
 def compute_scale_height(T, g, concentrations):
     """
     Compute the scale height of the atmosphere, given:
